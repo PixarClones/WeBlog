@@ -1,1 +1,3 @@
 # WeBlog
+
+Closed blogging website.
