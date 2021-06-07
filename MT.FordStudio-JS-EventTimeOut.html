@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown Timer</title>
+    
+    <script>
+        var eventName, eventDate;
+        var eventYear, eventMonth, eventDay;
+        
+        function getInput() {
+            var valid = false;
+            eventName = prompt("Event Name", "My Event");
+            
+            // validation
+            while (!valid) {
+            
+                // year
+                while (!valid) {
+                    eventYear = prompt("Event Year", "2018");
+                    valid = eventYear > 0 && eventYear < 10000;
+                }
+                valid = false;
+                
+                // month
+                while (!valid) {
+                    eventMonth = prompt("Event Month (1 to 12)", "1");
+                    valid = eventMonth >= 1 && eventMonth <= 12;
+                }
+                valid = false;
+                
+                // day
+                while (!valid) {
+                    eventDay = prompt("Event Day (1 to 31)", "1");
+                    valid = eventDay >= 1 && eventDay <= 31;
+                }
+                valid = false;
+                
+                // make sure the event date is in the future
+                var currentDate = new Date();
+                eventDate = new Date(eventYear + "-" + eventMonth + "-" + eventDay);
+                valid = eventDate.getTime() - currentDate.getTime() > 0;
+                
+                // show error alert
+                if (!valid) {
+                    alert("The event date must be in the future!");
+                }
+            }
+            
+            // show countdown
+            displayCountdown();
+            setInterval(displayCountdown, 1000);
+        }
+        
+        function displayCountdown() {
+            var currentDate = new Date();
+            var timeDiff = eventDate.getTime() - currentDate.getTime();
+            var secs = timeDiff / 1000;
+            var mins = secs / 60;
+            var hours = mins / 60;
+            var days = hours / 24;
+            
+            // calculate the time remaining
+            var daysLeft = Math.floor(days);
+            var hoursLeft = Math.floor(hours % 24);
+            var minsLeft = Math.floor(mins % 60);
+            var secsLeft = Math.floor(secs % 60);
+        
+            // output the heading and countdown timer
+            var myBox = document.getElementById("my_box");
+            myBox.innerHTML = "<h3>Countdown to " + eventName + " (" + eventDate.toLocaleDateString() + ")</h3><h2>" + daysLeft + " days " + hoursLeft + " hours " + minsLeft + " mins " + secsLeft + " secs</h2>";
+        }
+    </script>
+</head>
+
+<body onload="getInput();">
+    <div id="my_box">
+    
+    </div>
+</body>
+
+</html>

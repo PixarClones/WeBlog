@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+</script>
+
+<script>
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+</script>
+<style>
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+<style>
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: teal; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+<head>
+  <meta
+  name="description"      author="Jas from We Blog"     
+  content="The Games page of Media section our website We Blog.">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
+  <title>
+  We Blog - Games
+  </title>
+   <link rel = "icon" href =
+"http://weblog.gq/WeBlog/logo.png"
+		type = "image/x-icon">
+ </head>
+ <body style="font-family:verdana;" class="dark-mode">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="1WwUREXG"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="8ay5zo6C"></script>
+<ul>
+  <li><div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="imagepost.html">  Gallery </a>
+       <br>
+  <a href="media.html">  Media </a>
+  <br>
+    <a href="youtube.html">  YouTube </a>
+          <br>
+      <a href="Spotify.html"> Spotify </a>
+          <br>
+          <a href="articles.html"> Articles </a>
+          <br>
+            <a href="app.html">  Our App </a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
+  </div></li>
+<li>
+    <a href="home.html" class="active">
+  Home
+  </a>
+  </li>
+  <li>
+  <a href="contact.html">
+  Contact
+  </a>
+  </li>
+<li>
+   <a href="about.html">
+   About Us
+   </a>
+   </li>
+    </ul>
+      <br>  <br>
+      <h1>
+  <center>
+  <img src="logo.png">
+  <br>
+      We Blog - Random Letter Generator
+      </center>
+	  </h1>
+
+  <br>
+  <br>
+
+  <button onclick="topFunction()" id="myBtn" title="Go Back to Top">Go Back to Top</button>   
+  <script>
+  //Get the button:
+  mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+  </script>
+ <body style="font-family:verdana;" class="dark-mode">
+   <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="1WwUREXG"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="8ay5zo6C"></script>
+      <br>  <br>
+  <br>
+   </div>
+  </div>
+  <h4>
+    <a href="mailto:weblog5895@gmail.com" class="link"> Post your blog today! </a>
+    <br>
+    <br>
+  Have a question?<a href="mailto:weblog5895@gmail.com" class="link">Ask us!</a>
+      <br>
+      <br>
+  Have something you wanted to post online? <a href="mailto:weblog5895@gmail.com" class="link">Send Us!</a>(You can send images too!)
+  </h4>
+  <hr>
+  <center>
+  <button  class="click" onclick="myFunction()">Toggle Dark/Bright Mode</button>
+  </center>
+  <br>
+  <br>
+  <hr>
+  </div>
+  <br>
+  <h1> Random Letter Generator</h1>
+
+<div id="rpsDisplay">
+<button class="click"  onclick="newGame()"> Letter Will Be Displayed Here</button>
+<script>
+var rps = [
+'A', 'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+]
+
+function newGame() {
+  var randomNumber = Math.floor(Math.random() * (rps.length));
+  document.getElementById('rpsDisplay').innerHTML = rps[randomNumber];
+}
+
+</script>
+
+  </div>
+  <div id="rpsDisplay">
+  <button class="click"  onclick="newGame()"> Generate Letter </button>
+  <script>
+  var rps = [
+'A', 'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+  ]
+
+  function newGame() {
+    var randomNumber = Math.floor(Math.random() * (rps.length));
+    document.getElementById('rpsDisplay').innerHTML = rps[randomNumber];
+  }
+
+  </script>
+</div>
+
+  <hr>
+<footer>
+  <center>
+ <font class="date" style="font-size:10;">
+ This Website Belongs To We Blog Team - 2021.
+For More Details, go to <a href="about.html" class="link"> About Us. </a>
+   </font>
+     <br>
+      <br>
+ <a href="https://www.getrevue.co/profile/weblog" class="link" target="_blank">
+   Subscribe to Our Weekly-Newsletter!
+ </a>
+ <p>
+     <a href="home.html" class="date">  Home </a>   |
+       <a href="imagepost.html"  class="date">  Gallery </a>  |    
+ <a href="media.html"  class="date">  Media </a>
+   <br>  <br>
+   <a href="youtube.html"  class="date">  YouTube </a>    |
+     <a href="Spotify.html"  class="date">  Spotify </a>   |
+         <a href="articles.html"  class="date"> Articles </a>
+         <br>  <br>
+         <a href="contact.html"  class="date">  Contact Us </a>   |
+           <a href="about.html"  class="date">  About Us </a>      |
+           <a href="app.html"  class="date">  Our Apps </a>
+ </center>
+         </p>
+</footer>
+  </body>
+  </html>

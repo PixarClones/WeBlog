@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+</script>
+
+<script>
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+</script>
+<style>
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+<style>
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: teal; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+<head>
+  <meta
+  name="description"      author="Jas from We Blog"     
+  content="The Games page of Media section of our website We Blog.">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
+  <title>
+  We Blog - Media
+  </title>
+   <link rel = "icon" href =
+"http://weblog.gq/WeBlog/logo.png"
+		type = "image/x-icon">
+ </head>
+ <body style="font-family:verdana;" class="dark-mode">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="1WwUREXG"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="8ay5zo6C"></script>
+<ul>
+  <li><div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="imagepost.html">  Gallery </a>
+       <br>
+  <a href="media.html">  Media </a>
+  <br>
+    <a href="youtube.html">  YouTube </a>
+          <br>
+      <a href="Spotify.html"> Spotify </a>
+          <br>
+          <a href="articles.html"> Articles </a>
+          <br>
+            <a href="app.html">  Our App </a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
+  </div></li>
+<li>
+    <a href="home.html" class="active">
+  Home
+  </a>
+  </li>
+  <li>
+  <a href="contact.html">
+  Contact
+  </a>
+  </li>
+<li>
+   <a href="about.html">
+   About Us
+   </a>
+   </li>
+    </ul>
+      <br>  <br>
+      <h1>
+  <center>
+  <img src="logo.png">
+  <br>
+      We Blog - Games
+      </center>
+	  </h1>
+  <br>
+  <br>
+  <h4>
+    <a href="https://forms.gle/phUpV1cxt92Ftpjs6" class="link" target="_blank"> Create an account with us today!</a>
+    <br>
+    <br>  
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAASgpIJxUNVJHRU5FS09XT0I3RDVBT1Y4U1g4M0tNQy4u" class="link" target="_blank"> Please take a minute to rate our website. 
+    </a>
+    <br>
+    <br>
+    <a href="mailto:weblog5895@gmail.com" class="link"> Post your blog today! </a>
+    <br>
+    <br>
+  Have a question?<a href="mailto:weblog5895@gmail.com" class="link">Ask us!</a>
+      <br>
+      <br>
+  Have something you wanted to post online? <a href="mailto:weblog5895@gmail.com" class="link">Send Us!</a>(You can send images too!)
+  </h4>
+  <hr>
+<center>
+  <button class="click"  onclick="myFunction()">Toggle Dark/Bright Mode</button>
+  <br>
+  <br>
+  <h2> Quote Generator </h2>
+  <div id="quoteDisplay">
+  <button  class="click" onclick="newQuote()"> Press The Button Below To See The Quote </button>
+  <script>
+  var quotes = [
+    'The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela',
+    'The way to get started is to quit talking and begin doing. -Walt Disney',
+    'If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt',
+  'Spread love everywhere you go. Let no one ever come to you without leaving happier. -Mother Teresa',
+  'When you reach the end of your rope, tie a knot in it and hang on. -Franklin D. Roosevelt',
+  'Always remember that you are absolutely unique just like everyone else. -Margaret Mead',
+  'Tell me and I forget teach me and I remember involve me and I learn. -Benjamin Franklin',
+  'It is during our darkest moments that we must focus to see the light. -Aristotle'
+  ]
+
+  function newQuote() {
+    var randomNumber = Math.floor(Math.random() * (quotes.length));
+    document.getElementById('quoteDisplay').innerHTML = quotes[randomNumber];
+  }
+
+  </script>
+
+  </div>
+  <div id="quoteDisplay">
+  <button class="click"  onclick="newQuote()"> New Quote </button>
+  <script>
+  var quotes = [
+    'The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela',
+    'The way to get started is to quit talking and begin doing. -Walt Disney',
+    'If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt',
+  'Spread love everywhere you go. Let no one ever come to you without leaving happier. -Mother Teresa',
+  'When you reach the end of your rope, tie a knot in it and hang on. -Franklin D. Roosevelt',
+  'Always remember that you are absolutely unique just like everyone else. -Margaret Mead',
+  'Tell me and I forget teach me and I remember involve me and I learn. -Benjamin Franklin',
+  'It is during our darkest moments that we must focus to see the light. -Aristotle'
+  ]
+
+  function newQuote() {
+    var randomNumber = Math.floor(Math.random() * (quotes.length));
+    document.getElementById('quoteDisplay').innerHTML = quotes[randomNumber];
+  }
+
+  </script>
+</center>
+  </div>
+  <br>
+  <br>
+  <center>
+  <p>
+          Translate this page in
+          your preferred language:
+      </p>
+
+<a href="http://free-website-translation.com/" id="ftwtranslation_button" hreflang="en" title="" style="border:0;"><img src="http://free-website-translation.com/img/fwt_button_en.gif" id="ftwtranslation_image" alt="website translator plugin" style="border:0;"/></a> <script type="text/javascript" src="http://free-website-translation.com/scripts/fwt.js" /></script>
+  <hr>
+  </center>
+  <button onclick="topFunction()" id="myBtn" title="Go Back to Top">Go Back to Top</button>   
+  <script>
+  //Get the button:
+  mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+  </script>
+  
+  <br>
+  <br>
+  <p class="title">
+<h2>
+  Welcome to We Blog Games!
+</h2>
+</p>
+<br>
+<br>
+<br>
+<p class="title">
+<h3>
+  Our Games:
+</h3>
+</p>
+<h4>
+> <a href="rps1.html" class="link" target="_blank"> Rock, Paper & Scissor </a>
+<br>
+<br>
+> <a href="quotegen.html" class="link" target="_blank"> Quote Generator </a>
+<br>
+<br>
+> <a href="rps.html" class="link" target="_blank"> Random Number Generator </a>
+<br>
+<br>
+> <a href="rps2.html" class="link" target="_blank"> Random Letter Generator </a>
+<br>
+<br>
+<br>
+</h4>
+<font color="gray">
+<h3>
+<br>
+<hr color="green">
+Also Visit:
+<br>
+</h3>
+<br>
+<br>
+<a href="MT.FordStudio-JS-BluePlanet.html" class="link" target="_blank">
+Blue Planet
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-Quadratic.html" class="link" target="_blank">
+Quadratic Equation Solver
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-Quadratic-2.html" class="link" target="_blank">
+Quadratic Equation Solver 2
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-StarField.html" class="link" target="_blank">
+StarField
+</a>
+<br>
+<br>
+<a href="MyTimer.html" class="link" target="_blank">
+Timer
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-CUBE.html" class="link" target="_blank">
+Cube
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-BouncyBall.html" class="link" target="_blank">
+BouncyBall
+</a>
+<br>
+<br>
+<a href="CalculatorUsingHTML.html" class="link" target="_blank">
+Calculator
+</a>
+<br>
+<br>
+<a href="MT.FordStudio-JS-EventTimeOut.html" class="link" target="_blank">
+EventTimeOut
+</a>
+</font>
+<br>
+<br>
+<hr>
+<footer>
+  <center>
+ <font class="date" style="font-size:10;">
+ This Website Belongs To We Blog Team - 2021.
+For More Details, go to <a href="about.html" class="link"> About Us. </a>
+   </font>
+     <br>
+      <br>
+ <a href="https://www.getrevue.co/profile/weblog" class="link" target="_blank">
+   Subscribe to Our Weekly-Newsletter!
+ </a>
+ <p>
+     <a href="home.html" class="date">  Home </a>   |
+       <a href="imagepost.html"  class="date">  Gallery </a>  |    
+ <a href="media.html"  class="date">  Media </a>
+   <br>  <br>
+   <a href="youtube.html"  class="date">  YouTube </a>    |
+     <a href="Spotify.html"  class="date">  Spotify </a>   |
+         <a href="articles.html"  class="date"> Articles </a>
+         <br>  <br>
+         <a href="contact.html"  class="date">  Contact Us </a>   |
+           <a href="about.html"  class="date">  About Us </a>      |
+           <a href="app.html"  class="date">  Our Apps </a>
+ </center>
+         </p>
+</footer>
+</body>
+</html>

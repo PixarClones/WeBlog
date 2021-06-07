@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blue Planet 3</title>
+    <style></style>
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="500" height="500"></canvas>
+    <script>
+        const FPS = 30; // frames per second
+        const MAX_STAR_SIZE = 3; // maximum dimater of each star in pixels
+        const NUM_STARS = 200; // number of stars in the star field
+        const PLANET_SIZE = 0.7; // planet diameter as a fraction of screen width (0 to 1)
+        const STAR_SPEED = 5; // base speed of stars in pixels per second
+
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.getElementById("gameCanvas");
+        var context = canvas.getContext("2d");
+        var cx = canvas.width * 0.5;
+        var cy = canvas.height * 0.5;
+        var gradient;
+        var gx, gy, gxv, gyv;
+        var gAngle, gxd, gyd;
+        var planetRadius = canvas.width * PLANET_SIZE / 2;
+        var haloRadius = planetRadius * 0.5 / 0.35;
+        var stars = [];
+
+        // create each star object
+        var xVelocity = STAR_SPEED * (Math.random() >= 0.5 ? 1 : -1) * Math.random();
+        // a^2 + b^2 = c^2; x^2 + y^2 = speed^2; y^2 = speed^2 - x^2; so y = sqrt(speed^2 - x^2)
+        var yVelocity = Math.sqrt(Math.pow(STAR_SPEED, 2) - Math.pow(xVelocity, 2)) * (Math.random() >= 0.5 ? 1 : -1);
+        for (var i = 0; i < NUM_STARS; i++) {
+            var speedMult = Math.random() * 3 + 1;
+            stars[i] = {
+                radius: Math.random() * MAX_STAR_SIZE / 2,
+                x: Math.floor(Math.random() * canvas.width + 1),
+                y: Math.floor(Math.random() * canvas.height + 1),
+                xv: xVelocity * speedMult / FPS,
+                yv: yVelocity * speedMult / FPS
+            }
+        }
+
+        // set up gradient parameters
+        gx = cx - planetRadius * 0.2;
+        gy = cy - planetRadius * 0.2;
+        gxv = stars[0].xv;
+        gyv = stars[0].yv;
+        gAngle = Math.atan(Math.abs(gyv) / Math.abs(gxv));
+        gxd = planetRadius * Math.cos(gAngle);
+        gyd = planetRadius * Math.sin(gAngle);
+
+        // set up an interval
+        setInterval(update, 1000 / FPS);
+
+        function update() {
+            // draw space background
+            context.fillStyle = "black";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // loop over stars array
+            context.fillStyle = "white";
+            for (var i = 0; i < NUM_STARS; i++) {
+                // draw the star
+                context.beginPath();
+                context.arc(stars[i].x, stars[i].y, stars[i].radius, 0, Math.PI * 2, false);
+                context.fill();
+
+                // update its x position
+                stars[i].x += stars[i].xv;
+                if (stars[i].x < 0 - stars[i].radius) { // gone off left of screen
+                    // reposition it to the right of screen
+                    stars[i].x += canvas.width + stars[i].radius * 2;
+                } else if (stars[i].x > canvas.width + stars[i].radius) { // gone off the right of screen
+                    // reposition it to the left of screen
+                    stars[i].x -= canvas.width + stars[i].radius * 2;
+                }
+
+                // update its y position
+                stars[i].y += stars[i].yv;
+                if (stars[i].y < 0 - stars[i].radius) { // gone off the top of screen
+                    // reposition it to the bottom of screen
+                    stars[i].y += canvas.height + stars[i].radius * 2;
+                } else if (stars[i].y > canvas.height + stars[i].radius) { // gone off the bottom of screen
+                    // reposition it to the top of screen
+                    stars[i].y -= canvas.height + stars[i].radius * 2;
+                }
+            }
+
+            // create a gradient for the halo
+            gradient = context.createRadialGradient(cx, cy, haloRadius * 0.5, cx, cy, haloRadius);
+            gradient.addColorStop(0, "dodgerblue");
+            gradient.addColorStop(1, "transparent");
+
+            // draw the halo
+            context.fillStyle = gradient;
+            context.beginPath();
+            context.arc(cx, cy, haloRadius, 0, Math.PI * 2, false);
+            context.fill();
+
+            // create a gradient for the planet
+            gradient = context.createRadialGradient(gx, gy, 0, gx, gy, planetRadius);
+            gradient.addColorStop(0, "blue");
+            gradient.addColorStop(1, "midnightblue");
+
+            // update the gradient position
+            gx += gxv;
+            gy += gyv;
+
+            // use the larger of the velocity components to determine when the gradient has left the planet
+            if (gxd >= gyd) {
+                // gradient has gone off the planet in the x direction
+                if (gx > cx + gxd * 2 || gx < cx - gxd * 2) {
+                    updateGradientPosition();
+                }
+            } else {
+                // gradient has gone off the planet in the y direction
+                if (gy > cy + gyd * 2 || gy < cy - gyd * 2) {
+                    updateGradientPosition();
+                }
+            }
+
+            // draw the planet
+            context.fillStyle = gradient;
+            context.beginPath();
+            context.arc(cx, cy, planetRadius, 0, Math.PI * 2, false);
+            context.fill();
+        }
+
+        function updateGradientPosition() {
+            // update the x component
+            if (gx < cx) {
+                // reposition to the right of the planet
+                gx = cx + gxd * 2;
+            } else {
+                // reposition to the left of the planet
+                gx = cx - gxd * 2;
+            }
+
+            // update the y component
+            if (gy < cy) {
+                // reposition to the bottom of the planet
+                gy = cy + gyd * 2;
+            } else {
+                // reposition to the top of the planet
+                gy = cy - gyd * 2;
+            }
+        }
+    </script>
+</body>
+
+</html>

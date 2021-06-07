@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html><!--HTML HYPER TEXT MARKUP LANGUAGE-->
+<script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+    </script>
+    <style>
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    </style>
+<head><center>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+    name="description"           
+    content="Calculator by We Blog.">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
+    <style>
+      .click {
+  background-color: #2f4f4f; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+    .button {
+      position: relative;
+      background-color: #2f4f4f;
+      border: none;
+      font-size: 28px;
+      color: #FFFFFF;
+      padding: 20px;
+      width: 75px;
+      height: 130px;
+      text-align: center;
+      -webkit-transition-duration: 0.1s; /* Safari */
+      transition-duration: 0.1s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .button:after {
+      content: "";
+      background: teal;
+      display: block;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px!important;
+      margin-top: -120%;
+      opacity: 10;
+      transition: all 0.1s;
+    }
+    
+    .button:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 10;
+      transition: 0.1s;
+    }
+
+    .buttons {
+      position: relative;
+      background-color:#2f4f4f;
+      border: none;
+      font-size: 28px;
+      color: #FFFFFF;
+      padding: 20px;
+      width: 75px;
+      height: 130px;
+      text-align: center;
+      -webkit-transition-duration: 0.1s; /* Safari */
+      transition-duration: 0.1s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .buttons:after {
+      content: "";
+      background: teal;
+      display: block; 
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px!important;
+      margin-top: -120%;
+      opacity: 0;
+      transition: all 0.1s;
+    }
+    
+    .buttons:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0.1s;
+    }
+    .buttonss {
+      position: relative;
+      background-color:#2f4f4f;
+      border: none;
+      font-size: 28px;
+      color: #FFFFFF;
+      padding: 20px;
+      width: 180px;
+      height: 60px;
+      text-align: center;
+      -webkit-transition-duration: 0.1s; /* Safari */
+      transition-duration: 0.1s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .buttonoss:after {
+      content: "";
+      background: teal;
+      display: block;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px!important;
+      margin-top: -120%;
+      opacity: 0;
+      transition: all 0.5;
+    }
+    
+    .buttonss:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0.1s;
+    }
+    </style>
+<title>
+    Calculator
+    </title>
+    <link rel = "icon" href =
+    "http://weblog.gq/WeBlog/calcu.png"
+        type = "image/x-icon">
+</head>
+<body style="font-family:verdana; background-color: #2f4f4f;">
+      <form name="calculator" >
+    <input type="textfield" name="ans" value="" style="height: 130px; width:300px; font-size:40pt; font-family:Verdana;">
+    <br>
+<input type="button" value="1" class="button" onClick="document.calculator.ans.value+='1'"> <input type="button" value="2" class="button" onClick="document.calculator.ans.value+='2'"> <input type="button" value="3" class="button" onClick="document.calculator.ans.value+='3'"> <input type="button" value="-" class="buttons" onClick="document.calculator.ans.value+='-'">
+ <br>
+<input type="button" value="4" class="button" onClick="document.calculator.ans.value+='4'"> <input type="button" value="5" class="button" onClick="document.calculator.ans.value+='5'"> <input type="button" value="6" class="button" onClick="document.calculator.ans.value+='6'"> <input type="button" value="+" class="buttons" onClick="document.calculator.ans.value+='+'">
+ <br>
+<input type="button" value="7" class="button" onClick="document.calculator.ans.value+='7'"> <input type="button" value="8" class="button" onClick="document.calculator.ans.value+='8'"> <input type="button" value="9" class="button" onClick="document.calculator.ans.value+='9'"> <input type="button" value="x" class="buttons" onClick="document.calculator.ans.value+='*'">
+ <br>
+ <input type="button" value="0" class="button" onClick="document.calculator.ans.value+='0'"> <input type="button" value="00" class="buttons" onClick="document.calculator.ans.value+='00'"> <input type="button" value="." class="buttons" onClick="document.calculator.ans.value+='.'"> <input type="button" value="/" class="buttons" onClick="document.calculator.ans.value+='/'">
+ <br>
+ <input type="reset" value="C" class="buttonss"> <input type="button" value="=" class="buttonss" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+</form>
+</body>
+</center>
+</html>                               
